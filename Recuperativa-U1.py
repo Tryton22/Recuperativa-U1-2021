@@ -23,14 +23,15 @@ def nombre_especies(datos):
             print('Especie :', item['species'])
             especie = item['species']
 
-# Función que saca el promedio del ancho de las especies.
+# Función que saca el promedio del ancho, del largo y del tipo de especies con su rango.
 def promedio_ancho_largo(datos, especies, tipo):
     
     promedio = 0 
     contador = 0
 
     for item in datos:
-
+        
+        # Promedio del ancho.
         if tipo == "ancho":
             if  item['species'] == especies:
                 promedio = item['petalWidth'] + promedio
@@ -43,7 +44,8 @@ def promedio_ancho_largo(datos, especies, tipo):
             if item['species'] == 'virginica' and contador == 50:
                 resultado = promedio / contador                    
                 return resultado
-
+            
+        # Promedio del largo.
         if tipo == "largo":
             if  item['species'] == especies:
                 promedio = item['petalLength'] + promedio
@@ -56,7 +58,8 @@ def promedio_ancho_largo(datos, especies, tipo):
             if item['species'] == 'virginica' and contador == 50:
                 resultado = promedio / contador                    
                 return resultado
-
+            
+        # Promedio de cada especie con su rango -3 y +3.
         if tipo == "especie":
             if  item['species'] == especies:
                 contador = contador + 1
